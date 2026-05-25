@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AccesesBel Sc | Cuentas de Streaming y Licencias Premium</title>
+    <style>
+        :root {
+            --bg-principal: #0b0f19;
+            --bg-tarjetas: #151f32;
+            --texto-blanco: #ffffff;
+            --texto-mutado: #94a3b8;
+            --color-premium: #8b5cf6;
+            --color-gamer: #10b981;
+            --color-telegram: #0088cc;
+            --color-hover: #a78bfa;
+            --fuente: 'Arial', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-principal);
+            color: var(--texto-blanco);
+            font-family: var(--fuente);
+            line-height: 1.25;
+        }
+
+        header {
+            background-color: rgba(21, 31, 50, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--color-premium);
+            text-decoration: none;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu a {
+            color: var(--texto-blanco);
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: var(--color-premium);
+        }
+
+        .btn-tg-nav {
+            background-color: var(--color-telegram);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .btn-tg-nav:hover {
+            background-color: #229ed9 !important;
+            color: #fff !important;
+        }
+
+        .hero {
+            padding: 140px 20px 80px 20px;
+            text-align: center;
+            background: radial-gradient(circle at top, rgba(139, 92, 246, 0.15), transparent);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: var(--texto-mutado);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn-principal {
+            background-color: var(--color-premium);
+            color: var(--texto-blanco);
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-block;
+        }
+
+        .btn-principal:hover {
+            background-color: var(--color-hover);
+            transform: translateY(-2px);
+        }
+
+        .seccion {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .seccion-titulo {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .seccion-titulo::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-premium);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .tarjeta-producto {
+            background-color: var(--bg-tarjetas);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .tarjeta-producto:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.4);
+        }
+
+        .tarjeta-producto.gamer:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        .producto-icono {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .producto-nombre {
+            font-size: 1.4rem;
+            margin: 10px 0;
+        }
+
+        .producto-precio {
+            font-size: 1.8rem;
+            color: var(--color-premium);
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .tarjeta-producto.gamer .producto-precio {
+            color: var(--color-gamer);
+        }
+
+        .btn-comprar {
+            display: block;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--texto-blanco);
+            padding: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .tarjeta-producto:hover .btn-comprar {
+            background-color: var(--color-premium);
+            border-color: var(--color-premium);
+        }
+
+        .tarjeta-producto.gamer:hover .btn-comprar {
+            background-color: var(--color-gamer);
+            border-color: var(--color-gamer);
+        }
+
+        .banner-aliado {
+            background: linear-gradient(135deg, #1e1b4b, #064e3b);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .banner-aliado h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .banner-aliado p {
+            color: var(--texto-mutado);
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+
+        .codigo-cupon {
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 2px dashed var(--color-gamer);
+            padding: 10px 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--color-gamer);
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #070a10;
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--texto-mutado);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .telegram-link {
+            color: var(--color-telegram);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .menu { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">AccesesBel Sc</a>
+            <div class="menu">
+                <a href="#streaming">Streaming</a>
+                <a href="#gaming">Gaming</a>
+                <a href="#aliados">Hardware</a>
+                <a href="https://t.me/AccesesBelss" target="_blank" class="btn-tg-nav">Telegram</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Tu Entretenimiento Sin Límites</h1>
+        <p>Las mejores pantallas de streaming y licencias de videojuegos con entrega inmediata y soporte garantizado.</p>
+        <a href="#streaming" class="btn-principal">Ver Catálogo</a>
+    </section>
+
+    <section id="streaming" class="seccion">
+        <h2 class="seccion-titulo">Streaming Premium</h2>
+        <div class="grid-productos">
+            <div class="tarjeta-producto">
+                <div class="producto-icono">🎬</div>
+                <h3 class="producto-nombre">Netflix Ultra HD</h3>
+                <p style="color: var(--texto-mutado);">Pantallas estables, perfil original, 4K UHD.</p>
+                <div class="producto-precio">$3.99</div>
+                <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20página%20web%20y%20quiero%20adquirir%20una%20pantalla%20de%20Netflix%20Ultra%20HD%20🍿" target="_blank" class="btn-comprar">Comprar Ahora</a>
+            </div>
+            <div class="tarjeta-producto">
+                <div class="producto-icono">🎵</div>
+                <h3 class="producto-nombre">Spotify Premium</h3>
+                <p style="color: var(--texto-mutado);">Música sin anuncios, modo offline, cuentas personales.</p>
+                <div class="producto-precio">$2.50</div>
+                <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20página%20web%20y%20quiero%20adquirir%20una%20cuenta%20de%20Spotify%20Premium%20🎧" target="_blank" class="btn-comprar">Comprar Ahora</a>
+            </div>
+            <div class="tarjeta-producto">
+                <div class="producto-icono">🍿</div>
+                <h3 class="producto-nombre">Disney+ / Max</h3>
+                <p style="color: var(--texto-mutado);">Todo el catálogo de series y películas en máxima resolución.</p>
+                <div class="producto-precio">$3.00</div>
+                <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20página%20web%20y%20quiero%20adquirir%20una%20cuenta%20de%20Disney+%20/%20Max%20🎬" target="_blank" class="btn-comprar">Comprar Ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="gaming" class="seccion" style="background-color: rgba(255,255,255,0.01);">
+        <h2 class="seccion-titulo">Zona Gaming</h2>
+        <div class="grid-productos" style="justify-content: center; max-width: 400px; margin: 0 auto;">
+            <div class="tarjeta-producto gamer">
+                <div class="producto-icono">⛏️</div>
+                <h3 class="producto-nombre">Minecraft Premium</h3>
+                <p style="color: var(--texto-mutado);">Licencia original Full Acceso. Juega en los mejores servidores de PvP y UHC sin restricciones.</p>
+                <div class="producto-precio">$25.00</div>
+                <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20página%20web%20y%20estoy%20interesado%20en%20comprar%20una%20licencia%20de%20Minecraft%20Premium%20Full%20Acceso%20⚔️" target="_blank" class="btn-comprar">Comprar Licencia</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="aliados" class="seccion">
+        <h2 class="seccion-titulo">Hardware & Componentes</h2>
+        <div class="banner-aliado">
+            <h3>¿Armando tu PC para Streaming o Gaming?</h3>
+            <p>Tenemos una alianza estratégica con los duros de la tecnología. Consigue los mejores componentes, procesadores Xeon, gráficas y combos de actualización.</p>
+            <p>Visita a nuestros aliados de <strong>Makertechv</strong> y usa nuestro código exclusivo para obtener beneficios y descuentos:</p>
+            <div class="codigo-cupon">SAMCRD</div>
+            <div style="margin-top: 20px;">
+                <a href="https://www.instagram.com/makertechv" target="_blank" class="btn-principal" style="background-color: var(--color-gamer);">Visitar Tienda</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AccesesBel Sc. Todos los derechos reservados.</p>
+        <p>Escríbenos también por Telegram: <a href="https://t.me/AccesesBelss" target="_blank" class="telegram-link">@AccesesBelss</a></p>
+        <p style="font-size: 0.8rem; margin-top: 15px; color: rgba(255,255,255,0.2);">Diseñado con pasión para creadores y gamers.</p>
+    </footer>
+
+</body>
+</html>
