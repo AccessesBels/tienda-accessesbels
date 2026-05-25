@@ -12,6 +12,7 @@
             --texto-mutado: #94a3b8;
             --color-premium: #8b5cf6;
             --color-gamer: #10b981;
+            --color-whatsapp: #25d366;
             --color-telegram: #0088cc;
             --color-hover: #a78bfa;
             --fuente: 'Arial', sans-serif;
@@ -146,14 +147,14 @@
 
         .grid-productos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
 
         .tarjeta-producto {
             background-color: var(--bg-tarjetas);
             border-radius: 12px;
-            padding: 20px;
+            padding: 22px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: transform 0.3s, border-color 0.3s;
@@ -171,9 +172,13 @@
             border-color: rgba(16, 185, 129, 0.4);
         }
 
-        .producto-icono {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+        .producto-logo-img {
+            height: 45px;
+            max-width: 140px;
+            object-fit: contain;
+            margin: 0 auto 15px auto;
+            display: block;
+            filter: drop-shadow(0px 2px 8px rgba(0,0,0,0.5));
         }
 
         .producto-nombre {
@@ -200,26 +205,45 @@
             color: var(--color-gamer);
         }
 
-        .btn-comprar {
-            display: block;
-            background-color: rgba(255, 255, 255, 0.05);
-            color: var(--texto-blanco);
+        /* CONTENEDOR DE DOS BOTONES */
+        .botones-contacto {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .btn-accion {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
             padding: 10px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: background-color 0.3s;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            transition: background-color 0.3s, transform 0.2s;
+            background-color: rgba(255, 255, 255, 0.02);
         }
 
-        .tarjeta-producto:hover .btn-comprar {
-            background-color: var(--color-premium);
-            border-color: var(--color-premium);
+        .btn-accion svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
         }
 
-        .tarjeta-producto.gamer:hover .btn-comprar {
-            background-color: var(--color-gamer);
-            border-color: var(--color-gamer);
+        .btn-accion.wa:hover {
+            background-color: var(--color-whatsapp);
+            border-color: var(--color-whatsapp);
+            transform: translateY(-2px);
+        }
+
+        .btn-accion.tg:hover {
+            background-color: var(--color-telegram);
+            border-color: var(--color-telegram);
+            transform: translateY(-2px);
         }
 
         .banner-aliado {
@@ -310,156 +334,198 @@
         <div class="grid-productos">
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🎬</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix">
                     <h3 class="producto-nombre">Netflix Única</h3>
-                    <p class="producto-detalles">Máxima estabilidad, cuenta premium.</p>
+                    <p class="producto-detalles">Máxima estabilidad, cuenta premium completa.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$6.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Netflix%20Única%20➔%20$6" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Netflix%20Única%20➔%20$6" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Netflix%20Única%20➔%20$6" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🍿</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix">
                     <h3 class="producto-nombre">Netflix Premium</h3>
                     <p class="producto-detalles">Pantalla estable en Ultra HD 4K.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$4.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Netflix%20Premium%20➔%20$4" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Netflix%20Premium%20➔%20$4" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Netflix%20Premium%20➔%20$4" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">✨</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+">
                     <h3 class="producto-nombre">Disney+ Premium</h3>
-                    <p class="producto-detalles">Todo el contenido sin anuncios en la mejor calidad.</p>
+                    <p class="producto-detalles">Todo el contenido sin anuncios, máxima calidad de audio y video.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$3.50</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Disney+%20Premium%20➔%20$3.50" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Disney+%20Premium%20➔%20$3.50" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Disney+%20Premium%20➔%20$3.50" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">📱</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+">
                     <h3 class="producto-nombre">Disney+ Estándar</h3>
                     <p class="producto-detalles">Disfruta de tus series favoritas al mejor precio.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$2.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Disney+%20Estándar%20➔%20$2" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Disney+%20Estándar%20➔%20$2" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Disney+%20Estándar%20➔%20$2" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🔥</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Max_logo.svg" alt="MAX">
                     <h3 class="producto-nombre">MAX</h3>
-                    <p class="producto-detalles">Series de HBO, películas de Warner y más.</p>
+                    <p class="producto-detalles">Series de HBO, películas de Warner Bros y mucho más.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$3.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20MAX%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20MAX%20➔%20$3" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20MAX%20➔%20$3" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">💥</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/d/da/ViX_Logo.svg" alt="VIX+">
                     <h3 class="producto-nombre">VIX+</h3>
-                    <p class="producto-detalles">Telenovelas, series y el mejor contenido en español.</p>
+                    <p class="producto-detalles">Telenovelas, series, fútbol y el mejor contenido en español.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$2.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20VIX+%20➔%20$2" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20VIX+%20➔%20$2" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20VIX+%20➔%20$2" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🍏</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/2/28/Apple_TV_Plus_Logo.svg" alt="Apple TV" style="filter: invert(1);">
                     <h3 class="producto-nombre">Apple TV</h3>
                     <p class="producto-detalles">Producciones originales galardonadas.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$3.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Apple%20TV%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Apple%20TV%20➔%20$3" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Apple%20TV%20➔%20$3" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">📦</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg" alt="Prime Video">
                     <h3 class="producto-nombre">Prime Video</h3>
-                    <p class="producto-detalles">Catálogo completo de Amazon Original.</p>
+                    <p class="producto-detalles">Catálogo completo de Amazon Originals y series mundiales.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$3.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Prime%20Video%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Prime%20Video%20➔%20$3" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Prime%20Video%20➔%20$3" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">⛰️</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Paramount%2B_logo.svg" alt="Paramount+">
                     <h3 class="producto-nombre">Paramount+</h3>
-                    <p class="producto-detalles">Películas icónicas y shows exclusivos.</p>
+                    <p class="producto-detalles">Películas icónicas, series y shows infantiles exclusivos.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$3.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Paramount+%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Paramount+%20➔%20$3" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Paramount+%20➔%20$3" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🌐</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Universal_Plus_Logo.svg" alt="Universal+">
                     <h3 class="producto-nombre">Universal+</h3>
-                    <p class="producto-detalles">Canales premium en vivo y on-demand.</p>
+                    <p class="producto-detalles">Canales de TV premium en vivo y producciones on-demand.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$2.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Universal+%20➔%20$2" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Universal+%20➔%20$2" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Universal+%20➔%20$2" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🍣</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Crunchyroll_Logo.svg" alt="Crunchyroll">
                     <h3 class="producto-nombre">Crunchyroll (1 mes)</h3>
-                    <p class="producto-detalles">El mejor anime en simulcast sin anuncios.</p>
+                    <p class="producto-detalles">El mejor anime en simulcast directo desde Japón y sin anuncios.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$2.50</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Crunchyroll%20(1%20mes)%20➔%20$2.50" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Crunchyroll%20(1%20mes)%20➔%20$2.50" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Crunchyroll%20(1%20mes)%20➔%20$2.50" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🌸</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Crunchyroll_Logo.svg" alt="Crunchyroll">
                     <h3 class="producto-nombre">Crunchyroll (Anual)</h3>
-                    <p class="producto-detalles">12 meses completos. ¡La opción con más ahorro!</p>
+                    <p class="producto-detalles">12 meses completos de anime garantizado. ¡Plan de súper ahorro!</p>
                 </div>
                 <div>
                     <div class="producto-precio">$15.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Crunchyroll%20(12%20meses)%20➔%20$15" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Crunchyroll%20(12%20meses)%20➔%20$15" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Crunchyroll%20(12%20meses)%20➔%20$15" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🌟</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Rakuten_Viki_Logo.svg" alt="Viki Rakuten">
                     <h3 class="producto-nombre">Viki Rakuten</h3>
-                    <p class="producto-detalles">Doramas y contenido asiático exclusivo.</p>
+                    <p class="producto-detalles">Doramas, películas y series asiáticas exclusivas.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$3.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Viki%20Rakuten%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Viki%20Rakuten%20➔%20$3" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Viki%20Rakuten%20➔%20$3" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🏀</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/1/1d/NBA_logo.svg" alt="NBA" style="height: 55px;">
                     <h3 class="producto-nombre">NBA League Pass</h3>
-                    <p class="producto-detalles">Sigue toda la temporada del mejor baloncesto del mundo.</p>
+                    <p class="producto-detalles">Sigue toda la temporada del mejor baloncesto del mundo en vivo.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$5.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20NBA%20League%20Pass%20➔%20$5" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20NBA%20League%20Pass%20➔%20$5" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20NBA%20League%20Pass%20➔%20$5" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -470,24 +536,30 @@
         <div class="grid-productos">
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">📺</div>
+                    <div style="font-size: 2.2rem; font-weight: bold; color: #ef4444; margin-bottom: 15px; font-family: sans-serif; letter-spacing: -1px;">TeleLatino</div>
                     <h3 class="producto-nombre">Tele Latino</h3>
-                    <p class="producto-detalles">Canales premium, películas y series estables.</p>
+                    <p class="producto-detalles">Canales premium latinos, películas y series estables.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$3.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Tele%20Latino%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Tele%20Latino%20➔%20$3" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Tele%20Latino%20➔%20$3" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">⚡</div>
+                    <div style="font-size: 2.2rem; font-weight: bold; color: #10b981; margin-bottom: 15px; font-family: sans-serif;">FlujoTV</div>
                     <h3 class="producto-nombre">Flujo TV</h3>
-                    <p class="producto-detalles">Excelente servicio de IPTV con canales en HD.</p>
+                    <p class="producto-detalles">Excelente servicio de IPTV con canales estables en calidad HD.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$3.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Flujo%20TV%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Flujo%20TV%20➔%20$3" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Flujo%20TV%20➔%20$3" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -498,57 +570,72 @@
         <div class="grid-productos">
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🎵</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
                     <h3 class="producto-nombre">Spotify Premium</h3>
-                    <p class="producto-detalles">Cuentas personales sin anuncios y modo offline.</p>
+                    <p class="producto-detalles">Cuentas personales, música sin anuncios y modo offline.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$4.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Spotify%20➔%20$4" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Spotify%20➔%20$4" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Spotify%20➔%20$4" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🌊</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Tidal_Logo.svg" alt="Tidal" style="filter: invert(1);">
                     <h3 class="producto-nombre">Tidal</h3>
-                    <p class="producto-detalles">Sonido de alta fidelidad (Hi-Fi) para audiófilos.</p>
+                    <p class="producto-detalles">Sonido de alta fidelidad (Hi-Fi) para los amantes de la música.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$2.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Tidal%20➔%20$2" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Tidal%20➔%20$2" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Tidal%20➔%20$2" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🎧</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/d/db/Deezer_logo_2023.svg" alt="Deezer">
                     <h3 class="producto-nombre">Deezer</h3>
-                    <p class="producto-detalles">Millones de canciones con excelente calidad de audio.</p>
+                    <p class="producto-detalles">Millones de canciones con excelente interfaz y calidad de audio.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$2.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Deezer%20➔%20$2" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Deezer%20➔%20$2" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Deezer%20➔%20$2" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">📻</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Apple_Music_logo.svg" alt="Apple Music">
                     <h3 class="producto-nombre">Apple Music</h3>
-                    <p class="producto-detalles">Audio espacial y todo el catálogo de Apple.</p>
+                    <p class="producto-detalles">Audio espacial y todo el inmenso catálogo musical de Apple.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$3.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Apple%20Music%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Apple%20Music%20➔%20$3" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Apple%20Music%20➔%20$3" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">❤️</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Logo_of_YouTube_%282015-2017%29.svg" alt="YouTube">
                     <h3 class="producto-nombre">YouTube Premium</h3>
                     <p class="producto-detalles">1 mes sin anuncios, reproducción en segundo plano y YT Music.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$4.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20YouTube%20Premium%20➔%20$4" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20YouTube%20Premium%20➔%20$4" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20YouTube%20Premium%20➔%20$4" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -559,112 +646,142 @@
         <div class="grid-productos">
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🤖</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT">
                     <h3 class="producto-nombre">ChatGPT Plus</h3>
-                    <p class="producto-detalles">Acceso prioritario a los modelos más avanzados de OpenAI.</p>
+                    <p class="producto-detalles">Acceso prioritario a los modelos GPT-4o sin límites de uso.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$7.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20ChatGPT%20Plus%20➔%20$7" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20ChatGPT%20Plus%20➔%20$7" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20ChatGPT%20Plus%20➔%20$7" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🎨</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Canva_Logo.svg" alt="Canva">
                     <h3 class="producto-nombre">Canva Pro (1 mes)</h3>
-                    <p class="producto-detalles">Acceso Pro a plantillas y herramientas por un mes.</p>
+                    <p class="producto-detalles">Acceso Pro completo a elementos, marcas y plantillas por 30 días.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$2.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Canva%20Pro%20(1%20mes)%20➔%20$2" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Canva%20Pro%20(1%20mes)%20➔%20$2" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Canva%20Pro%20(1%20mes)%20➔%20$2" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">💎</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Canva_Logo.svg" alt="Canva">
                     <h3 class="producto-nombre">Canva Pro (Anual)</h3>
-                    <p class="producto-detalles">12 meses de acceso garantizado. ¡Súper ahorro!</p>
+                    <p class="producto-detalles">12 meses de acceso premium total sin interrupciones. El más vendido.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$8.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Canva%20Pro%20(12%20meses)%20➔%20$8" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Canva%20Pro%20(12%20meses)%20➔%20$8" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Canva%20Pro%20(12%20meses)%20➔%20$8" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">✨</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Canva_Logo.svg" alt="Canva">
                     <h3 class="producto-nombre">Canva Pro Nueva</h3>
-                    <p class="producto-detalles">Activación directa en cuenta totalmente nueva.</p>
+                    <p class="producto-detalles">Activación directa sobre un correo electrónico nuevo.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$3.50</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Canva%20Pro%20Nueva%20➔%20$3.50" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Canva%20Pro%20Nueva%20➔%20$3.50" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Canva%20Pro%20Nueva%20➔%20$3.50" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🔄</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Canva_Logo.svg" alt="Canva">
                     <h3 class="producto-nombre">Canva Renovación</h3>
-                    <p class="producto-detalles">Renovamos tu plan Canva Pro actual sin perder tus diseños.</p>
+                    <p class="producto-detalles">Renovamos tu plan Canva Pro actual sin que pierdas tus diseños creados.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$5.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Canva%20Pro%20Renovación%20➔%20$5" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Canva%20Pro%20Renovación%20➔%20$5" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Canva%20Pro%20Renovación%20➔%20$5" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🚀</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Creative_Cloud_logo_2020.svg" alt="Adobe">
                     <h3 class="producto-nombre">Adobe Creative Cloud</h3>
-                    <p class="producto-detalles">Photoshop, Illustrator y toda la suite creativa.</p>
+                    <p class="producto-detalles">Photoshop, Illustrator, Premiere y toda la suite creativa pro.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$8.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Adobe%20Creative%20Cloud%20➔%20$8" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Adobe%20Creative%20Cloud%20➔%20$8" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Adobe%20Creative%20Cloud%20➔%20$8" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🎬</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/d/df/CapCut_logo.svg" alt="CapCut">
                     <h3 class="producto-nombre">CapCut Pro</h3>
-                    <p class="producto-detalles">Efectos y transiciones pro para tus videos de TikTok.</p>
+                    <p class="producto-detalles">Efectos, plantillas y transiciones pro para tus videos de TikTok.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$5.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20CapCut%20Pro%20➔%20$5" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20CapCut%20Pro%20➔%20$5" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20CapCut%20Pro%20➔%20$5" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🔒</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/1/18/Surfshark_Logo.svg" alt="SurfShark">
                     <h3 class="producto-nombre">SurfShark VPN</h3>
-                    <p class="producto-detalles">Navegación segura, privada y saltos de restricciones.</p>
+                    <p class="producto-detalles">Navegación segura, ultra rápida y libre de restricciones regionales.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$3.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20SurfShark%20VPN%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20SurfShark%20VPN%20➔%20$3" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20SurfShark%20VPN%20➔%20$3" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">🛡️</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/7/77/ExpressVPN_logo.svg" alt="Express VPN">
                     <h3 class="producto-nombre">Express VPN</h3>
-                    <p class="producto-detalles">Una de las redes privadas virtuales más rápidas del mundo.</p>
+                    <p class="producto-detalles">La red privada virtual líder en velocidad y protección de datos.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$3.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Express%20VPN%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Express%20VPN%20➔%20$3" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Express%20VPN%20➔%20$3" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
             <div class="tarjeta-producto">
                 <div>
-                    <div class="producto-icono">📦</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" alt="Google Drive">
                     <h3 class="producto-nombre">Google Drive 2TB</h3>
-                    <p class="producto-detalles">Plan de 12 meses. Espacio masivo en la nube de Google.</p>
+                    <p class="producto-detalles">Plan masivo de 12 meses para guardar lo que quieras en la nube.</p>
                 </div>
                 <div>
                     <div class="producto-precio">$20.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Google%20Drive%202TB%20(12%20meses)%20➔%20$20" target="_blank" class="btn-comprar">Comprar</a>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Quiero%20adquirir%20Google%20Drive%202TB%20(12%20meses)%20➔%20$20" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Quiero%20adquirir%20Google%20Drive%202TB%20(12%20meses)%20➔%20$20" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -675,13 +792,16 @@
         <div class="grid-productos" style="justify-content: center; max-width: 400px; margin: 0 auto;">
             <div class="tarjeta-producto gamer">
                 <div>
-                    <div class="producto-icono">⛏️</div>
+                    <img class="producto-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Minecraft_Official_Logo.svg" alt="Minecraft" style="max-width: 150px;">
                     <h3 class="producto-nombre">Minecraft Premium</h3>
-                    <p class="producto-detalles">Licencia original Full Acceso. Juega en los mejores servidores de PvP y UHC sin restricciones.</p>
+                    <p class="producto-detalles">Licencia original Full Acceso. Juega en servidores PvP y UHC sin restricciones de ningún tipo.</p>
                 </div>
                 <div>
-                    <div class="producto-precio">$25.00</div>
-                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20estoy%20interesado%20en%20comprar%20una%20licencia%20de%20Minecraft%20Premium%20Full%20Acceso%20⚔️" target="_blank" class="btn-comprar">Comprar Licencia</a>
+                    <div class="producto-precio">$20.00</div>
+                    <div class="botones-contacto">
+                        <a href="https://wa.me/584242157241?text=Hola!%20Estoy%20interesado%20en%20comprar%20una%20licencia%20de%20Minecraft%20Premium%20Full%20Acceso%20⚔️" target="_blank" class="btn-accion wa"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.922c1.644.975 3.52 1.488 5.428 1.489 5.615 0 10.184-4.57 10.187-10.188.002-2.721-1.054-5.279-2.971-7.197C17.375 2.265 14.82 1.21 12.01 1.21 6.393 1.21 1.825 5.779 1.822 11.397c-.001 1.815.481 3.59 1.398 5.16l-.993 3.627 3.71-.973zm11.367-7.351c-.312-.156-1.848-.912-2.128-1.013-.281-.102-.485-.156-.687.156-.202.311-.781 1.013-.956 1.213-.175.2-.35.223-.662.067-.312-.156-1.318-.485-2.51-1.548-.928-.827-1.554-1.849-1.736-2.16-.182-.311-.02-.48.137-.635.141-.14.312-.363.469-.546.156-.182.208-.311.312-.519.104-.207.052-.389-.026-.546-.078-.156-.687-1.656-.941-2.266-.248-.595-.501-.514-.687-.524-.176-.01-.378-.011-.579-.011-.201 0-.528.075-.804.376-.276.301-1.055 1.031-1.055 2.516s1.08 2.984 1.23 3.188c.151.203 2.125 3.245 5.148 4.549.719.311 1.28.497 1.717.637.722.23 1.38.197 1.901.12.58-.087 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.414-.078-.125-.282-.203-.594-.359z"/></svg>WhatsApp</a>
+                        <a href="https://t.me/AccesesBelss?text=Hola!%20Estoy%20interesado%20en%20comprar%20una%20licencia%20de%20Minecraft%20Premium%20Full%20Acceso%20⚔️" target="_blank" class="btn-accion geometric tg"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.938 9.124c-.145.643-.524.803-1.064.5l-2.951-2.174-1.423 1.371c-.157.157-.289.289-.593.289l.211-3.003 5.467-4.939c.238-.212-.052-.33-.37-.118l-6.756 4.252-2.911-.91c-.633-.198-.646-.633.132-.937l11.382-4.385c.527-.198.988.118.813.937z"/></svg>Telegram</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -704,7 +824,7 @@
         <div class="seccion-pagos">
             <h3>💳 Métodos de Pago Flexibles</h3>
             <p style="color: var(--texto-mutado); font-size: 1.1rem; max-width: 700px; margin: 10px auto 0 auto;">
-                Aceptamos <strong>Pago Móvil</strong>, transferencias a <strong>Bancos Nacionales</strong> y pagos globales en criptos mediante <strong>Binance (USD)</strong>.
+                Aceptamos <strong>Pago Móvil</strong>, transferencias a <strong>Bancos Nacionales</strong> y pagos globales mediante <strong>Binance (USD)</strong>.
             </p>
         </div>
     </section>
