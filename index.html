@@ -62,6 +62,7 @@
             color: var(--texto-blanco);
             text-decoration: none;
             margin-left: 20px;
+            font-size: 0.95rem;
             transition: color 0.3s;
         }
 
@@ -83,7 +84,7 @@
         }
 
         .hero {
-            padding: 140px 20px 80px 20px;
+            padding: 140px 20px 60px 20px;
             text-align: center;
             background: radial-gradient(circle at top, rgba(139, 92, 246, 0.15), transparent);
         }
@@ -119,13 +120,13 @@
         .seccion {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 40px 20px;
         }
 
         .seccion-titulo {
             text-align: center;
             font-size: 2rem;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             position: relative;
         }
 
@@ -139,19 +140,26 @@
             border-radius: 2px;
         }
 
+        .seccion-titulo.gamer::after {
+            background-color: var(--color-gamer);
+        }
+
         .grid-productos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
         }
 
         .tarjeta-producto {
             background-color: var(--bg-tarjetas);
             border-radius: 12px;
-            padding: 25px;
+            padding: 20px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .tarjeta-producto:hover {
@@ -164,20 +172,28 @@
         }
 
         .producto-icono {
-            font-size: 3rem;
-            margin-bottom: 15px;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
 
         .producto-nombre {
-            font-size: 1.4rem;
-            margin: 10px 0;
+            font-size: 1.25rem;
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        .producto-detalles {
+            color: var(--texto-mutado);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            min-height: 40px;
         }
 
         .producto-precio {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--color-premium);
             font-weight: bold;
-            margin: 15px 0;
+            margin-bottom: 15px;
         }
 
         .tarjeta-producto.gamer .producto-precio {
@@ -211,7 +227,7 @@
             border-radius: 16px;
             padding: 40px;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -237,6 +253,15 @@
             color: var(--color-gamer);
             border-radius: 6px;
             margin-bottom: 20px;
+        }
+
+        .seccion-pagos {
+            text-align: center;
+            background-color: rgba(21, 31, 50, 0.4);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
         }
 
         footer {
@@ -265,56 +290,399 @@
         <div class="nav-container">
             <a href="#" class="logo">AccesesBel Sc</a>
             <div class="menu">
-                <a href="#streaming">Streaming</a>
+                <a href="#series">Cine & TV</a>
+                <a href="#musica">Música</a>
+                <a href="#ia-diseno">IA & Diseño</a>
                 <a href="#gaming">Gaming</a>
-                <a href="#aliados">Hardware</a>
                 <a href="https://t.me/AccesesBelss" target="_blank" class="btn-tg-nav">Telegram</a>
             </div>
         </div>
     </header>
 
     <section class="hero">
-        <h1>Tu Entretenimiento Sin Límites</h1>
-        <p>Las mejores pantallas de streaming y licencias de videojuegos con entrega inmediata y soporte garantizado.</p>
-        <a href="#streaming" class="btn-principal">Ver Catálogo</a>
+        <h1>Tus Pantallas y Servicios Favoritos 🇻🇪⚡</h1>
+        <p>El mejor precio del mercado con entrega inmediata y soporte totalmente garantizado.</p>
+        <a href="#series" class="btn-principal">Ver Catálogo</a>
     </section>
 
-    <section id="streaming" class="seccion">
-        <h2 class="seccion-titulo">Streaming Premium</h2>
+    <section id="series" class="seccion">
+        <h2 class="seccion-titulo">Series y Películas</h2>
         <div class="grid-productos">
             <div class="tarjeta-producto">
-                <div class="producto-icono">🎬</div>
-                <h3 class="producto-nombre">Netflix Ultra HD</h3>
-                <p style="color: var(--texto-mutado);">Pantallas estables, perfil original, 4K UHD.</p>
-                <div class="producto-precio">$3.99</div>
-                <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20página%20web%20y%20quiero%20adquirir%20una%20pantalla%20de%20Netflix%20Ultra%20HD%20🍿" target="_blank" class="btn-comprar">Comprar Ahora</a>
+                <div>
+                    <div class="producto-icono">🎬</div>
+                    <h3 class="producto-nombre">Netflix Única</h3>
+                    <p class="producto-detalles">Máxima estabilidad, cuenta premium.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$6.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Netflix%20Única%20➔%20$6" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
             </div>
             <div class="tarjeta-producto">
-                <div class="producto-icono">🎵</div>
-                <h3 class="producto-nombre">Spotify Premium</h3>
-                <p style="color: var(--texto-mutado);">Música sin anuncios, modo offline, cuentas personales.</p>
-                <div class="producto-precio">$2.50</div>
-                <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20página%20web%20y%20quiero%20adquirir%20una%20cuenta%20de%20Spotify%20Premium%20🎧" target="_blank" class="btn-comprar">Comprar Ahora</a>
+                <div>
+                    <div class="producto-icono">🍿</div>
+                    <h3 class="producto-nombre">Netflix Premium</h3>
+                    <p class="producto-detalles">Pantalla estable en Ultra HD 4K.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$4.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Netflix%20Premium%20➔%20$4" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
             </div>
             <div class="tarjeta-producto">
-                <div class="producto-icono">🍿</div>
-                <h3 class="producto-nombre">Disney+ / Max</h3>
-                <p style="color: var(--texto-mutado);">Todo el catálogo de series y películas en máxima resolución.</p>
-                <div class="producto-precio">$3.00</div>
-                <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20página%20web%20y%20quiero%20adquirir%20una%20cuenta%20de%20Disney+%20/%20Max%20🎬" target="_blank" class="btn-comprar">Comprar Ahora</a>
+                <div>
+                    <div class="producto-icono">✨</div>
+                    <h3 class="producto-nombre">Disney+ Premium</h3>
+                    <p class="producto-detalles">Todo el contenido sin anuncios en la mejor calidad.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$3.50</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Disney+%20Premium%20➔%20$3.50" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">📱</div>
+                    <h3 class="producto-nombre">Disney+ Estándar</h3>
+                    <p class="producto-detalles">Disfruta de tus series favoritas al mejor precio.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$2.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Disney+%20Estándar%20➔%20$2" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🔥</div>
+                    <h3 class="producto-nombre">MAX</h3>
+                    <p class="producto-detalles">Series de HBO, películas de Warner y más.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$3.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20MAX%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">💥</div>
+                    <h3 class="producto-nombre">VIX+</h3>
+                    <p class="producto-detalles">Telenovelas, series y el mejor contenido en español.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$2.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20VIX+%20➔%20$2" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🍏</div>
+                    <h3 class="producto-nombre">Apple TV</h3>
+                    <p class="producto-detalles">Producciones originales galardonadas.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$3.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Apple%20TV%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">📦</div>
+                    <h3 class="producto-nombre">Prime Video</h3>
+                    <p class="producto-detalles">Catálogo completo de Amazon Original.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$3.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Prime%20Video%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">⛰️</div>
+                    <h3 class="producto-nombre">Paramount+</h3>
+                    <p class="producto-detalles">Películas icónicas y shows exclusivos.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$3.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Paramount+%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🌐</div>
+                    <h3 class="producto-nombre">Universal+</h3>
+                    <p class="producto-detalles">Canales premium en vivo y on-demand.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$2.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Universal+%20➔%20$2" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🍣</div>
+                    <h3 class="producto-nombre">Crunchyroll (1 mes)</h3>
+                    <p class="producto-detalles">El mejor anime en simulcast sin anuncios.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$2.50</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Crunchyroll%20(1%20mes)%20➔%20$2.50" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🌸</div>
+                    <h3 class="producto-nombre">Crunchyroll (Anual)</h3>
+                    <p class="producto-detalles">12 meses completos. ¡La opción con más ahorro!</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$15.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Crunchyroll%20(12%20meses)%20➔%20$15" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🌟</div>
+                    <h3 class="producto-nombre">Viki Rakuten</h3>
+                    <p class="producto-detalles">Doramas y contenido asiático exclusivo.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$3.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Viki%20Rakuten%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🏀</div>
+                    <h3 class="producto-nombre">NBA League Pass</h3>
+                    <p class="producto-detalles">Sigue toda la temporada del mejor baloncesto del mundo.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$5.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20NBA%20League%20Pass%20➔%20$5" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="gaming" class="seccion" style="background-color: rgba(255,255,255,0.01);">
-        <h2 class="seccion-titulo">Zona Gaming</h2>
+    <section class="seccion" style="background-color: rgba(255,255,255,0.01);">
+        <h2 class="seccion-titulo">Televisión en Vivo</h2>
+        <div class="grid-productos">
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">📺</div>
+                    <h3 class="producto-nombre">Tele Latino</h3>
+                    <p class="producto-detalles">Canales premium, películas y series estables.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$3.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Tele%20Latino%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">⚡</div>
+                    <h3 class="producto-nombre">Flujo TV</h3>
+                    <p class="producto-detalles">Excelente servicio de IPTV con canales en HD.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$3.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Flujo%20TV%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="musica" class="seccion">
+        <h2 class="seccion-titulo">Música y Videos</h2>
+        <div class="grid-productos">
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🎵</div>
+                    <h3 class="producto-nombre">Spotify Premium</h3>
+                    <p class="producto-detalles">Cuentas personales sin anuncios y modo offline.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$4.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Spotify%20➔%20$4" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🌊</div>
+                    <h3 class="producto-nombre">Tidal</h3>
+                    <p class="producto-detalles">Sonido de alta fidelidad (Hi-Fi) para audiófilos.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$2.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Tidal%20➔%20$2" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🎧</div>
+                    <h3 class="producto-nombre">Deezer</h3>
+                    <p class="producto-detalles">Millones de canciones con excelente calidad de audio.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$2.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Deezer%20➔%20$2" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">📻</div>
+                    <h3 class="producto-nombre">Apple Music</h3>
+                    <p class="producto-detalles">Audio espacial y todo el catálogo de Apple.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$3.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Apple%20Music%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">❤️</div>
+                    <h3 class="producto-nombre">YouTube Premium</h3>
+                    <p class="producto-detalles">1 mes sin anuncios, reproducción en segundo plano y YT Music.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$4.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20YouTube%20Premium%20➔%20$4" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ia-diseno" class="seccion" style="background-color: rgba(255,255,255,0.01);">
+        <h2 class="seccion-titulo">Inteligencia Artificial y Diseño</h2>
+        <div class="grid-productos">
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🤖</div>
+                    <h3 class="producto-nombre">ChatGPT Plus</h3>
+                    <p class="producto-detalles">Acceso prioritario a los modelos más avanzados de OpenAI.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$7.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20ChatGPT%20Plus%20➔%20$7" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🎨</div>
+                    <h3 class="producto-nombre">Canva Pro (1 mes)</h3>
+                    <p class="producto-detalles">Acceso Pro a plantillas y herramientas por un mes.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$2.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Canva%20Pro%20(1%20mes)%20➔%20$2" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">💎</div>
+                    <h3 class="producto-nombre">Canva Pro (Anual)</h3>
+                    <p class="producto-detalles">12 meses de acceso garantizado. ¡Súper ahorro!</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$8.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Canva%20Pro%20(12%20meses)%20➔%20$8" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">✨</div>
+                    <h3 class="producto-nombre">Canva Pro Nueva</h3>
+                    <p class="producto-detalles">Activación directa en cuenta totalmente nueva.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$3.50</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Canva%20Pro%20Nueva%20➔%20$3.50" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🔄</div>
+                    <h3 class="producto-nombre">Canva Renovación</h3>
+                    <p class="producto-detalles">Renovamos tu plan Canva Pro actual sin perder tus diseños.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$5.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Canva%20Pro%20Renovación%20➔%20$5" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🚀</div>
+                    <h3 class="producto-nombre">Adobe Creative Cloud</h3>
+                    <p class="producto-detalles">Photoshop, Illustrator y toda la suite creativa.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$8.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Adobe%20Creative%20Cloud%20➔%20$8" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🎬</div>
+                    <h3 class="producto-nombre">CapCut Pro</h3>
+                    <p class="producto-detalles">Efectos y transiciones pro para tus videos de TikTok.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$5.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20CapCut%20Pro%20➔%20$5" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🔒</div>
+                    <h3 class="producto-nombre">SurfShark VPN</h3>
+                    <p class="producto-detalles">Navegación segura, privada y saltos de restricciones.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$3.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20SurfShark%20VPN%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">🛡️</div>
+                    <h3 class="producto-nombre">Express VPN</h3>
+                    <p class="producto-detalles">Una de las redes privadas virtuales más rápidas del mundo.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$3.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Express%20VPN%20➔%20$3" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+            <div class="tarjeta-producto">
+                <div>
+                    <div class="producto-icono">📦</div>
+                    <h3 class="producto-nombre">Google Drive 2TB</h3>
+                    <p class="producto-detalles">Plan de 12 meses. Espacio masivo en la nube de Google.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$20.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20adquirir%20Google%20Drive%202TB%20(12%20meses)%20➔%20$20" target="_blank" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gaming" class="seccion">
+        <h2 class="seccion-titulo gamer">Zona Gaming</h2>
         <div class="grid-productos" style="justify-content: center; max-width: 400px; margin: 0 auto;">
             <div class="tarjeta-producto gamer">
-                <div class="producto-icono">⛏️</div>
-                <h3 class="producto-nombre">Minecraft Premium</h3>
-                <p style="color: var(--texto-mutado);">Licencia original Full Acceso. Juega en los mejores servidores de PvP y UHC sin restricciones.</p>
-                <div class="producto-precio">$25.00</div>
-                <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20página%20web%20y%20estoy%20interesado%20en%20comprar%20una%20licencia%20de%20Minecraft%20Premium%20Full%20Acceso%20⚔️" target="_blank" class="btn-comprar">Comprar Licencia</a>
+                <div>
+                    <div class="producto-icono">⛏️</div>
+                    <h3 class="producto-nombre">Minecraft Premium</h3>
+                    <p class="producto-detalles">Licencia original Full Acceso. Juega en los mejores servidores de PvP y UHC sin restricciones.</p>
+                </div>
+                <div>
+                    <div class="producto-precio">$25.00</div>
+                    <a href="https://wa.me/584242157241?text=Hola!%20Vengo%20de%20la%20web%20y%20estoy%20interesado%20en%20comprar%20una%20licencia%20de%20Minecraft%20Premium%20Full%20Acceso%20⚔️" target="_blank" class="btn-comprar">Comprar Licencia</a>
+                </div>
             </div>
         </div>
     </section>
@@ -329,6 +697,15 @@
             <div style="margin-top: 20px;">
                 <a href="https://www.instagram.com/makertechv" target="_blank" class="btn-principal" style="background-color: var(--color-gamer);">Visitar Tienda</a>
             </div>
+        </div>
+    </section>
+
+    <section class="seccion">
+        <div class="seccion-pagos">
+            <h3>💳 Métodos de Pago Flexibles</h3>
+            <p style="color: var(--texto-mutado); font-size: 1.1rem; max-width: 700px; margin: 10px auto 0 auto;">
+                Aceptamos <strong>Pago Móvil</strong>, transferencias a <strong>Bancos Nacionales</strong> y pagos globales en criptos mediante <strong>Binance (USD)</strong>.
+            </p>
         </div>
     </section>
 
